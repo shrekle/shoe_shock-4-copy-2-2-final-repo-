@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA095E87283D9910000312CD /* UIRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA095E86283D9910000312CD /* UIRoundedView.swift */; };
+		CA095E89283D99EC000312CD /* UIRoundedMiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */; };
 		CA709A33282EA99600788BA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA709A32282EA99600788BA0 /* AppDelegate.swift */; };
 		CA709A35282EA99600788BA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA709A34282EA99600788BA0 /* SceneDelegate.swift */; };
-		CA709A37282EA99600788BA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA709A36282EA99600788BA0 /* ViewController.swift */; };
 		CA709A3A282EA99600788BA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA709A38282EA99600788BA0 /* Main.storyboard */; };
 		CA709A3C282EA99800788BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA709A3B282EA99800788BA0 /* Assets.xcassets */; };
 		CA709A3F282EA99800788BA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA709A3D282EA99800788BA0 /* LaunchScreen.storyboard */; };
+		CAA7F75528590D70004229DF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7F75428590D70004229DF /* HomeVC.swift */; };
+		CAC0B57228340F9B00499913 /* ShoeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B57128340F9B00499913 /* ShoeCollectionViewCell.swift */; };
+		CAC0B5742834106C00499913 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B5732834106C00499913 /* BrandsCollectionViewCell.swift */; };
+		CAC0B576283410E200499913 /* SuggestionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B575283410E200499913 /* SuggestionsCollectionViewCell.swift */; };
+		CAC0B5782834133200499913 /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B5772834133200499913 /* Shoe.swift */; };
+		CAC0B57D2834446400499913 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B57C2834446400499913 /* API.swift */; };
+		CAC0B57F28344CF200499913 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B57E28344CF200499913 /* Brand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA095E86283D9910000312CD /* UIRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedView.swift; sourceTree = "<group>"; };
+		CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedMiniView.swift; sourceTree = "<group>"; };
 		CA709A2F282EA99600788BA0 /* shoe_shock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shoe_shock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA709A32282EA99600788BA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA709A34282EA99600788BA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA709A36282EA99600788BA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA709A39282EA99600788BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA709A3B282EA99800788BA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA709A3E282EA99800788BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA709A40282EA99800788BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAA7F75428590D70004229DF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CAC0B57128340F9B00499913 /* ShoeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAC0B5732834106C00499913 /* BrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAC0B575283410E200499913 /* SuggestionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAC0B5772834133200499913 /* Shoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
+		CAC0B57C2834446400499913 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CAC0B57E28344CF200499913 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,63 @@
 		CA709A31282EA99600788BA0 /* shoe_shock */ = {
 			isa = PBXGroup;
 			children = (
-				CA709A32282EA99600788BA0 /* AppDelegate.swift */,
-				CA709A34282EA99600788BA0 /* SceneDelegate.swift */,
-				CA709A36282EA99600788BA0 /* ViewController.swift */,
-				CA709A38282EA99600788BA0 /* Main.storyboard */,
-				CA709A3B282EA99800788BA0 /* Assets.xcassets */,
-				CA709A3D282EA99800788BA0 /* LaunchScreen.storyboard */,
 				CA709A40282EA99800788BA0 /* Info.plist */,
+				CA709A46282EA9A900788BA0 /* CRAP */,
+				CA709A38282EA99600788BA0 /* Main.storyboard */,
+				CAC0B57B2834444B00499913 /* API */,
+				CA709A48282EA9D700788BA0 /* Model */,
+				CA709A49282EA9DE00788BA0 /* View */,
+				CA709A47282EA9CB00788BA0 /* Controller */,
 			);
 			path = shoe_shock;
+			sourceTree = "<group>";
+		};
+		CA709A46282EA9A900788BA0 /* CRAP */ = {
+			isa = PBXGroup;
+			children = (
+				CA709A32282EA99600788BA0 /* AppDelegate.swift */,
+				CA709A34282EA99600788BA0 /* SceneDelegate.swift */,
+				CA709A3D282EA99800788BA0 /* LaunchScreen.storyboard */,
+				CA709A3B282EA99800788BA0 /* Assets.xcassets */,
+			);
+			path = CRAP;
+			sourceTree = "<group>";
+		};
+		CA709A47282EA9CB00788BA0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CAA7F75428590D70004229DF /* HomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CA709A48282EA9D700788BA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0B57E28344CF200499913 /* Brand.swift */,
+				CAC0B5772834133200499913 /* Shoe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA709A49282EA9DE00788BA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0B5732834106C00499913 /* BrandsCollectionViewCell.swift */,
+				CAC0B57128340F9B00499913 /* ShoeCollectionViewCell.swift */,
+				CAC0B575283410E200499913 /* SuggestionsCollectionViewCell.swift */,
+				CA095E86283D9910000312CD /* UIRoundedView.swift */,
+				CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAC0B57B2834444B00499913 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0B57C2834446400499913 /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +202,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA709A37282EA99600788BA0 /* ViewController.swift in Sources */,
+				CA095E89283D99EC000312CD /* UIRoundedMiniView.swift in Sources */,
+				CAC0B57F28344CF200499913 /* Brand.swift in Sources */,
+				CA095E87283D9910000312CD /* UIRoundedView.swift in Sources */,
+				CAC0B57228340F9B00499913 /* ShoeCollectionViewCell.swift in Sources */,
+				CAC0B5742834106C00499913 /* BrandsCollectionViewCell.swift in Sources */,
+				CAA7F75528590D70004229DF /* HomeVC.swift in Sources */,
 				CA709A33282EA99600788BA0 /* AppDelegate.swift in Sources */,
+				CAC0B576283410E200499913 /* SuggestionsCollectionViewCell.swift in Sources */,
 				CA709A35282EA99600788BA0 /* SceneDelegate.swift in Sources */,
+				CAC0B57D2834446400499913 /* API.swift in Sources */,
+				CAC0B5782834133200499913 /* Shoe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +359,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9U8MS35934;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = shoe_shock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,6 +387,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9U8MS35934;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = shoe_shock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
