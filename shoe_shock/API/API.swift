@@ -7,10 +7,39 @@
 
 import Foundation
 
+enum BrandOption: Int, CaseIterable {
+//    matching it with the cells index or the order they are in the brands array
+//    rawValue is the index of the "array"
+    case nike = 0
+    case addidas
+    case xeroShoes
+    case vessi
+    case reebok
+    case merrell
+    
+    var title: String {
+        switch self {
+        case .nike:
+            return "Nike"
+        case .addidas:
+            return "Addidas"
+        case .xeroShoes:
+            return "Xero Shoes"
+        case .vessi:
+            return "Vessi"
+        case .reebok:
+            return "Reebok"
+        case .merrell:
+            return "Merrell"
+        }
+    }
+}
+
 class Api {
     
     static let instance = Api()
     
+    var cartList = [Shoe]()
     
     private let brands = [
         Brand(title: "Nike"),
@@ -22,39 +51,39 @@ class Api {
     ]
     
     private let nike = [
-        Shoe(brand: "Nike", model: "Airforce One", price: "$50", imageName: "airforceone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Nike", model: "Airfoot one", price: "$50", imageName: "airfootone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Nike", model:"AirHuarache One", price: "$100", imageName: "airhuaracheone.png", isHearted: false, counter: 0)
+        Shoe(brand: "Nike", model: "Airforce One", price: "50", imageName: "airforceone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Nike", model: "Airfoot one", price: "50", imageName: "airfootone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Nike", model:"AirHuarache One", price: "100", imageName: "airhuaracheone.png", isHearted: false, counter: 0)
     ]
     
     private let addidas = [
-        Shoe(brand: "Addidas", model: "Grand Court", price: "$60", imageName: "grandcourt.png", isHearted: false, counter: 0),
-        Shoe(brand: "Addidas", model: "Airfoot one", price: "$50", imageName: "airfootone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Addidas", model:"Airforce One", price: "$100", imageName: "airforceone.png", isHearted: false, counter: 0)
+        Shoe(brand: "Addidas", model: "Grand Court", price: "60", imageName: "grandcourt.png", isHearted: false, counter: 0),
+        Shoe(brand: "Addidas", model: "Airfoot one", price: "50", imageName: "airfootone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Addidas", model:"Airforce One", price: "100", imageName: "airforceone.png", isHearted: false, counter: 0)
     ]
     
     private let xeroshoes = [
-        Shoe(brand: "Xeroshoes", model: "Huarache", price: "$70", imageName: "airhuaracheone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Xeroshoes", model: "Airfoot one", price: "$50", imageName: "airfootone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Xeroshoes", model:"Airforce One", price: "$100", imageName: "airforceone.png", isHearted: false, counter: 0)
+        Shoe(brand: "Xeroshoes", model: "Huarache", price: "70", imageName: "airhuaracheone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Xeroshoes", model: "Airfoot one", price: "50", imageName: "airfootone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Xeroshoes", model:"Airforce One", price: "100", imageName: "airforceone.png", isHearted: false, counter: 0)
     ]
     
     private let vessi = [
-        Shoe(brand: "Vessi", model: "Weekender", price: "$100", imageName: "weekender.png", isHearted: false, counter: 0),
-        Shoe(brand: "Vessi", model: "Airfoot one", price: "$50", imageName: "airfootone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Vessi", model:"Airforce One", price: "$100", imageName: "airforceone.png", isHearted: false, counter: 0)
+        Shoe(brand: "Vessi", model: "Weekender", price: "100", imageName: "weekender.png", isHearted: false, counter: 0),
+        Shoe(brand: "Vessi", model: "Airfoot one", price: "50", imageName: "airfootone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Vessi", model:"Airforce One", price: "100", imageName: "airforceone.png", isHearted: false, counter: 0)
     ]
     
     private let reebok = [
-        Shoe(brand: "Reebok", model: "Club C", price: "$50", imageName: "clubc.png", isHearted: false, counter: 0),
-        Shoe(brand: "Reebok", model: "Airfoot one", price: "$50", imageName: "airfootone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Reebok", model:"Airforce One", price: "$100", imageName: "airforceone.png", isHearted: false, counter: 0)
+        Shoe(brand: "Reebok", model: "Club C", price: "50", imageName: "clubc.png", isHearted: false, counter: 0),
+        Shoe(brand: "Reebok", model: "Airfoot one", price: "50", imageName: "airfootone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Reebok", model:"Airforce One", price: "100", imageName: "airforceone.png", isHearted: false, counter: 0)
     ]
     
     private let merrell = [
-        Shoe(brand: "Merrell", model: "Trail Glove", price: "$150", imageName: "streetglove.png", isHearted: false, counter: 0),
-        Shoe(brand: "Merrell", model: "Airfoot one", price: "$50", imageName: "airfootone.png", isHearted: false, counter: 0),
-        Shoe(brand: "Merrell", model:"Airforce One", price: "$100", imageName: "airforceone.png", isHearted: false, counter: 0)
+        Shoe(brand: "Merrell", model: "Trail Glove", price: "150", imageName: "streetglove.png", isHearted: false, counter: 0),
+        Shoe(brand: "Merrell", model: "Airfoot one", price: "50", imageName: "airfootone.png", isHearted: false, counter: 0),
+        Shoe(brand: "Merrell", model:"Airforce One", price: "100", imageName: "airforceone.png", isHearted: false, counter: 0)
     ]
     
     func getBrands()-> [Brand] {
@@ -79,53 +108,30 @@ class Api {
         return merrell
     }
     
-    func getShoes(brand: Brand)-> [Shoe] {
+    func getShoes(brand: BrandOption)-> [Shoe] {
         
-        switch brand.title {
-        case "Nike":
+        switch brand {
+        case .nike:
             return getNike()
-        case "Addidas":
+        case .addidas:
             return getAddidas()
-        case "Xero Shoes":
+        case .xeroShoes:
             return getXeroShoes()
-        case "Vessi":
+        case .vessi:
             return getVessi()
-        case "Reebok":
+        case .reebok:
             return getReebok()
-        case "Merrell":
+        case .merrell:
             return getMerrell()
-        default:
-            return getNike()
         }
-        
     }
     
     func getAllShoes()->[Shoe] {
         var allShoes = [Shoe]()
-        for i in brands {
+        for i in BrandOption.allCases {
             let shoes = getShoes(brand: i)
-            for i in shoes {
-                allShoes.append(i)
-            }
+            allShoes.append(contentsOf: shoes)
         }
         return allShoes
-    }
-    func brandChoosen (title: String)-> [Shoe] {
-        switch title {
-        case "Nike":
-            return getNike()
-        case "Addidas":
-            return getAddidas()
-        case "Xero Shoes":
-            return getXeroShoes()
-        case "Vessi":
-            return getVessi()
-        case "Reebok":
-            return getReebok()
-        case "Merrell":
-            return getMerrell()
-        default:
-            return getNike()
-        }
     }
 }

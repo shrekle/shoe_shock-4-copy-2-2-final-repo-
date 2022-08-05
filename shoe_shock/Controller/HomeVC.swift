@@ -11,6 +11,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var brandsCollectionView: UICollectionView! {
         didSet {
+            //this brandsCollectionView is literally the outlet var established above
             brandsCollectionView.delegate = self
             brandsCollectionView.dataSource = self
         }
@@ -28,10 +29,17 @@ class HomeVC: UIViewController {
         }
     }
     
-    var brandIndexTracker = 0
-    var brandTracker = Brand(title: "fgh")
-    lazy var shoesArray = Api.instance.getShoes(brand: brandTracker)
+    var selectedBrand: BrandOption = .nike {
+        didSet {
+            shoesArray = Api.instance.getShoes(brand: selectedBrand)
+            shoeCollectionView.reloadData()
+        }
+    }
+    
+    var shoesArray = Api.instance.getShoes(brand: .nike)
     var brands = Api.instance.getBrands()
+    var heartedShoes = [String: Bool]()
+    var specificShoe: Shoe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,16 +56,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cellId = getId(for: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
-        if let cell = cell as? BrandsCollectionViewCell {
-            print("BRANDS CELL", indexPath.row)
-            cell.updateViews(brandIndexTracker: indexPath.row, brandTracker: brands[indexPath.row], delgate: self)
+        if let cell = cell as? BrandsCollectionViewCell, let brand = BrandOption(rawValue: indexPath.row) {
+            cell.updateViews(title: brand.title)
             return cell
         }
         else if let cell = cell as? ShoeCollectionViewCell {
-            print("SHOECOLLECTIONCELL", indexPath.row)
-            let specificcShoe = shoesArray[indexPath.row]
-            print("SHOECOLLECTION", specificcShoe)
-            cell.updateViews(indexPath: indexPath.row, brandIndexTracker: brandIndexTracker, specificShoe: specificcShoe, delegate: self)
+            var specificShoe = shoesArray[indexPath.row]
+            specificShoe.isHearted = heartedShoes[specificShoe.brand + specificShoe.model] ?? false
+            cell.updateViews(specificShoe: specificShoe, delegate: self)
             return cell
         }
         else if let cell =  cell as? SuggestionsCollectionViewCell {
@@ -66,29 +72,61 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //    }
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+            switch collectionView {
+            case brandsCollectionView:
+//               enums rawValues are optionals?
+               if let brand = BrandOption(rawValue: indexPath.row) {
+                    selectedBrand = brand
+                }
+            case shoeCollectionView:
+                specificShoe = shoesArray[indexPath.row]
+                performSegue(withIdentifier: "todetailsVC", sender: self)
+                break //WHY IS THIS BREAK HERE???
+            case suggestionsCollectionView:
+                specificShoe = shoesArray[indexPath.row]
+                performSegue(withIdentifier: "todetailsVC", sender: self)
+            default: break
+            }
+        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "todetailsVC" {
+            let destinationVC = segue.destination as? DetailsVC
+            destinationVC?.specificShoe = specificShoe
+        }
+        if segue.identifier == "todetailsVC" {
+            let destinationVC = segue.destination as? DetailsVC
+            destinationVC?.specificShoe = specificShoe
+        }
+   }
 }
 
-extension HomeVC: BrandsCollectionViewCellDelegate, ShoeCollectionViewCellDelegate {
-    func brandTranny(brandIndex: Int, brandName: Brand) {
-        print("FIRST", brandIndex, brandName)
-        brandIndexTracker = brandIndex
-        brandTracker = brandName
-        print("BEFORE RELOAD", brandIndexTracker, brandTracker)
-        shoeCollectionView.reloadData()
-        print("LAST", brandIndexTracker, brandTracker)
-    }
-    func specificShoeX(specificShoe: Shoe) {
-    
+extension HomeVC: ShoeCollectionViewCellDelegate {
+    func specificShoeTranny(specificShoe: Shoe) {
+//                                               the first index where this closure statement is true
+        if let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model}) {
+            shoesArray[i].isHearted.toggle()
+            let shoe = shoesArray[i]
+            heartedShoes[shoe.brand + shoe.model] = shoe.isHearted //the key is the brand and model combination and it chnges the value to what shoe.hearted is
+            shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
+            print(heartedShoes)
+            if shoe.isHearted {
+                // add to cart
+            } else {
+                // remove from cart
+            }
+        }
     }
 }
+
 private extension HomeVC {
-    
+
     func getCellCount(CV: UICollectionView)-> Int {
+        
         switch CV {
         case brandsCollectionView:
-            return Api.instance.getBrands().count
+            return BrandOption.allCases.count
         case shoeCollectionView:
             return Api.instance.getNike().count
         case suggestionsCollectionView:
@@ -97,18 +135,17 @@ private extension HomeVC {
             return 0
         }
     }
-    
     func getId(for collectionView: UICollectionView)-> String {
         
         switch collectionView {
         case brandsCollectionView:
             return BrandsCollectionViewCell.cellReuseID
         case shoeCollectionView:
-            return "shoeCell"
+            return ShoeCollectionViewCell.cellReuseId
         case suggestionsCollectionView:
-            return "suggestionsCell"
+            return SuggestionsCollectionViewCell.cellReuseId
         default:
-            return "brandsCell"
+            return BrandsCollectionViewCell.cellReuseID
         }
     }
 }

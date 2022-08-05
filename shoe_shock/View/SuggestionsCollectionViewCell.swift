@@ -9,6 +9,8 @@ import UIKit
 
 class SuggestionsCollectionViewCell: UICollectionViewCell {
     
+    static let cellReuseId = "suggestionsCell"
+    
     @IBOutlet weak var shoeModelLbl: UILabel!
     @IBOutlet weak var shoeImgLbl: UIImageView!
 
