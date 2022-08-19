@@ -18,6 +18,7 @@
 		CA709A3C282EA99800788BA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA709A3B282EA99800788BA0 /* Assets.xcassets */; };
 		CA709A3F282EA99800788BA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA709A3D282EA99800788BA0 /* LaunchScreen.storyboard */; };
 		CAA7F75528590D70004229DF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7F75428590D70004229DF /* HomeVC.swift */; };
+		CABBA12C289E0A08006A1DA5 /* CartTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABBA12B289E0A08006A1DA5 /* CartTableViewCell2.swift */; };
 		CAC0B57228340F9B00499913 /* ShoeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B57128340F9B00499913 /* ShoeCollectionViewCell.swift */; };
 		CAC0B5742834106C00499913 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B5732834106C00499913 /* BrandsCollectionViewCell.swift */; };
 		CAC0B576283410E200499913 /* SuggestionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC0B575283410E200499913 /* SuggestionsCollectionViewCell.swift */; };
@@ -41,6 +42,7 @@
 		CA709A3E282EA99800788BA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA709A40282EA99800788BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAA7F75428590D70004229DF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CABBA12B289E0A08006A1DA5 /* CartTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell2.swift; sourceTree = "<group>"; };
 		CAC0B57128340F9B00499913 /* ShoeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeCollectionViewCell.swift; sourceTree = "<group>"; };
 		CAC0B5732834106C00499913 /* BrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CAC0B575283410E200499913 /* SuggestionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				CA095E86283D9910000312CD /* UIRoundedView.swift */,
 				CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */,
 				CA0F9C572890530700BC5CFB /* CartTableViewCell.swift */,
+				CABBA12B289E0A08006A1DA5 /* CartTableViewCell2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			files = (
 				CA095E89283D99EC000312CD /* UIRoundedMiniView.swift in Sources */,
 				CAC0B57F28344CF200499913 /* Brand.swift in Sources */,
+				CABBA12C289E0A08006A1DA5 /* CartTableViewCell2.swift in Sources */,
 				CA095E87283D9910000312CD /* UIRoundedView.swift in Sources */,
 				CAC0B57228340F9B00499913 /* ShoeCollectionViewCell.swift in Sources */,
 				CAEE222F288F767400AED843 /* CartVC.swift in Sources */,

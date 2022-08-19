@@ -14,7 +14,6 @@ class CompletedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageLBL.image = UIImage(named: "weekender")
-        completedLBL.text = "LET'S GO BRANDON...DARK BRANDON"
     }
     
 

@@ -104,7 +104,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension HomeVC: ShoeCollectionViewCellDelegate {
     func specificShoeTranny(specificShoe: Shoe) {
-//                                               the first index where this closure statement is true
+//                                               the first index where this closure statement is true, itll throw or return the int where the statement was true in
         if let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model}) {
             shoesArray[i].isHearted.toggle()
             let shoe = shoesArray[i]

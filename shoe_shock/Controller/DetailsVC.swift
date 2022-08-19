@@ -20,12 +20,11 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-
     }
     
     @IBAction func addToCart() {
         specificShoe.isHearted.toggle()
-        specificShoe.counter += 1
+        specificShoe.counter = 1
         Api.instance.cartList.append(specificShoe)
 //        print(Api.instance.cartList)
 //        var index = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model})
