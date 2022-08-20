@@ -35,25 +35,32 @@ class CartTableViewCell2: UITableViewCell {
     }
 //    its cofusing the index and assigning weird crap to a diff shoe because something moves or some crap
     @IBAction func stepperJenk(_ sender: UIStepper) {
-        let index = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model})
-        Api.instance.cartList[index ?? 0].counter = Int(sender.value)
+        if let index = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model}) {
+        Api.instance.cartList[index].counter = Int(sender.value)
         shouldRemove(sender: sender.value)
         print(Api.instance.cartList)
         delegate?.nateHasJustinTimberlakeHairCurls()
+        }
     }
 }
 
 private extension CartTableViewCell2 {
     
     func shouldRemove(sender: Double) {
-        if sender == 0.0 {
-            Api.instance.cartList.remove(at: index ?? 0)
+        if sender == 0.0, let index = index {
+//            Api.instance.cartList[index].isHearted.toggle()
+            Api.instance.cartList.remove(at: index)
         }
     }
     
     func cellTotal()-> String {
-        let result = String(Api.instance.cartList[index ?? 0].counter * (Int(Api.instance.cartList[index ?? 0].price) ?? 0))
-        return  "$  \(result)"
+        if let index = index {
+            let result = String(Api.instance.cartList[index].counter * (Int(Api.instance.cartList[index].price) ?? 0))
+            return  "$  \(result)"
+        } else {
+            return "0"
+        }
+       
     }
 }
 //will have to use a delegate to pass in the whole model with the counter chnages and bool changes to the cartVC and do the math the for the cartTotalLBl so i can reload()

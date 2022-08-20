@@ -11,7 +11,6 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var brandsCollectionView: UICollectionView! {
         didSet {
-            //this brandsCollectionView is literally the outlet var established above
             brandsCollectionView.delegate = self
             brandsCollectionView.dataSource = self
         }
@@ -104,15 +103,19 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension HomeVC: ShoeCollectionViewCellDelegate {
     func specificShoeTranny(specificShoe: Shoe) {
-//                                               the first index where this closure statement is true, itll throw or return the int where the statement was true in
+
         if let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model}) {
             shoesArray[i].isHearted.toggle()
             let shoe = shoesArray[i]
-            heartedShoes[shoe.brand + shoe.model] = shoe.isHearted //the key is the brand and model combination and it chnges the value to what shoe.hearted is
+            heartedShoes[shoe.brand + shoe.model] = shoe.isHearted //the key is the brand plus model combination and it changes the value to what shoe.hearted is
             shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
             print(heartedShoes)
             if shoe.isHearted {
-                // add to cart
+                Api.instance.cartList.append(shoe)
+                if let newIndex = Api.instance.cartList.firstIndex(where: {$0 == shoe}) {
+                    Api.instance.cartList[newIndex].counter += 1
+                    shoesArray[i].isHearted.toggle()
+                }
             } else {
                 // remove from cart
             }

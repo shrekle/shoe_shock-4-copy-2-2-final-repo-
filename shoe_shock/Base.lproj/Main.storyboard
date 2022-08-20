@@ -382,8 +382,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CART TOTAL: 12$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKU-hk-q3k">
-                                <rect key="frame" x="0.0" y="777.33333333333337" width="428" height="54.666666666666629"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKU-hk-q3k">
+                                <rect key="frame" x="0.0" y="832" width="428" height="0.0"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="40"/>
                                 <color key="textColor" red="0.42536269558328382" green="0.4338699494949495" blue="0.4338699494949495" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -401,7 +401,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-I0-35a">
-                                <rect key="frame" x="20" y="118" width="388" height="609.33333333333337"/>
+                                <rect key="frame" x="20" y="118" width="388" height="664"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="carttableviewcell" rowHeight="167" id="uHL-PH-fKZ" customClass="CartTableViewCell2" customModule="shoe_shock" customModuleProvider="target">
@@ -482,6 +482,7 @@
                     <navigationItem key="navigationItem" id="kG5-13-DLM"/>
                     <connections>
                         <outlet property="cartTotalLBL" destination="uKU-hk-q3k" id="Cen-fB-8PR"/>
+                        <outlet property="purchaseButtonLBL" destination="imk-2l-Wfi" id="foz-hb-TG2"/>
                         <outlet property="table" destination="BTr-I0-35a" id="v13-zD-vz0"/>
                     </connections>
                 </viewController>
@@ -551,7 +552,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gbK-4D-MRu"/>
+        <segue reference="nbl-Ct-2Vf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
