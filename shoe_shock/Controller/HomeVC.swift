@@ -39,9 +39,11 @@ class HomeVC: UIViewController {
     var brands = Api.instance.getBrands()
     var heartedShoes = [String: Bool]()
     var specificShoe: Shoe!
+    //    lazy var shoeHome = Shoe(brand: "", model: "", price: "", imageName: "", isHearted: false, counter: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 } 
 
@@ -61,7 +63,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         else if let cell = cell as? ShoeCollectionViewCell {
             var specificShoe = shoesArray[indexPath.row]
+            //            specificShoe.isHearted = shoeHome.isHearted
             specificShoe.isHearted = heartedShoes[specificShoe.brand + specificShoe.model] ?? false
+            print("LIST SHOES IN CELL", Api.instance.cartList)
             cell.updateViews(specificShoe: specificShoe, delegate: self)
             return cell
         }
@@ -71,24 +75,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
-            switch collectionView {
-            case brandsCollectionView:
-//               enums rawValues are optionals?
-               if let brand = BrandOption(rawValue: indexPath.row) {
-                    selectedBrand = brand
-                }
-            case shoeCollectionView:
-                specificShoe = shoesArray[indexPath.row]
-                performSegue(withIdentifier: "todetailsVC", sender: self)
-                break //WHY IS THIS BREAK HERE???
-            case suggestionsCollectionView:
-                specificShoe = shoesArray[indexPath.row]
-                performSegue(withIdentifier: "todetailsVC", sender: self)
-            default: break
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch collectionView {
+        case brandsCollectionView:
+            //               enums rawValues are optionals?
+            if let brand = BrandOption(rawValue: indexPath.row) {
+                selectedBrand = brand
             }
+        case shoeCollectionView:
+            specificShoe = shoesArray[indexPath.row]
+            performSegue(withIdentifier: "todetailsVC", sender: self)
+            break //WHY IS THIS BREAK HERE???
+        case suggestionsCollectionView:
+            specificShoe = shoesArray[indexPath.row]
+            performSegue(withIdentifier: "todetailsVC", sender: self)
+        default: break
         }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "todetailsVC" {
             let destinationVC = segue.destination as? DetailsVC
@@ -98,33 +102,36 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let destinationVC = segue.destination as? DetailsVC
             destinationVC?.specificShoe = specificShoe
         }
-   }
+    }
 }
 
 extension HomeVC: ShoeCollectionViewCellDelegate {
     func specificShoeTranny(specificShoe: Shoe) {
+        
+        guard let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model && $0.brand == specificShoe.brand}) else {return}
+        var shoe = shoesArray[i]
+        shoe.counter += 1
+        shoe.isHearted.toggle()
+        shoesArray[i].isHearted = shoe.isHearted
+//        shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
 
-        if let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model}) {
-            shoesArray[i].isHearted.toggle()
-            let shoe = shoesArray[i]
-            heartedShoes[shoe.brand + shoe.model] = shoe.isHearted //the key is the brand plus model combination and it changes the value to what shoe.hearted is
+//        if shoe.isHearted == true {
+//            shoe.counter += 1
+            Api.instance.cartList.append(shoe)
+            print("TRUE LIST SHOES IN DELEGATE", Api.instance.cartList)
             shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
-            print(heartedShoes)
-            if shoe.isHearted {
-                Api.instance.cartList.append(shoe)
-                if let newIndex = Api.instance.cartList.firstIndex(where: {$0 == shoe}) {
-                    Api.instance.cartList[newIndex].counter += 1
-                    shoesArray[i].isHearted.toggle()
-                }
-            } else {
-                // remove from cart
-            }
+//        } else
+            if shoe.isHearted == false { //use specificShoe!!!!!!!
+            if let newIndex = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model && $0.brand == specificShoe.brand}) {
+                Api.instance.cartList.remove(at: newIndex)
+                print("FALSE LIST SHOES IN DELEGATE", Api.instance.cartList)
+                shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
+            } 
         }
     }
 }
-
 private extension HomeVC {
-
+    
     func getCellCount(CV: UICollectionView)-> Int {
         
         switch CV {
