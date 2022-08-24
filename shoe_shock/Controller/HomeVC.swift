@@ -31,7 +31,6 @@ class HomeVC: UIViewController {
     var selectedBrand: BrandOption = .nike {
         didSet {
             shoesArray = Api.instance.getShoes(brand: selectedBrand)
-            shoeCollectionView.reloadData()
         }
     }
     
@@ -42,6 +41,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shoeCollectionView.reloadData()
     }
 } 
 
@@ -71,24 +71,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
-            switch collectionView {
-            case brandsCollectionView:
-//               enums rawValues are optionals?
-               if let brand = BrandOption(rawValue: indexPath.row) {
-                    selectedBrand = brand
-                }
-            case shoeCollectionView:
-                specificShoe = shoesArray[indexPath.row]
-                performSegue(withIdentifier: "todetailsVC", sender: self)
-                break //WHY IS THIS BREAK HERE???
-            case suggestionsCollectionView:
-                specificShoe = shoesArray[indexPath.row]
-                performSegue(withIdentifier: "todetailsVC", sender: self)
-            default: break
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch collectionView {
+        case brandsCollectionView:
+            //               enums rawValues are optionals?
+            if let brand = BrandOption(rawValue: indexPath.row) {
+                selectedBrand = brand
             }
+        case shoeCollectionView:
+            specificShoe = shoesArray[indexPath.row]
+            performSegue(withIdentifier: "todetailsVC", sender: self)
+            break //WHY IS THIS BREAK HERE???
+        case suggestionsCollectionView:
+            specificShoe = shoesArray[indexPath.row]
+            performSegue(withIdentifier: "todetailsVC", sender: self)
+        default: break
         }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "todetailsVC" {
             let destinationVC = segue.destination as? DetailsVC
@@ -98,33 +98,37 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let destinationVC = segue.destination as? DetailsVC
             destinationVC?.specificShoe = specificShoe
         }
-   }
+    }
 }
 
 extension HomeVC: ShoeCollectionViewCellDelegate {
+    
     func specificShoeTranny(specificShoe: Shoe) {
-
-        if let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model}) {
+        
+        if let i = shoesArray.firstIndex(where: {$0.model == specificShoe.model && $0.brand == specificShoe.brand}) {
             shoesArray[i].isHearted.toggle()
-            let shoe = shoesArray[i]
-            heartedShoes[shoe.brand + shoe.model] = shoe.isHearted //the key is the brand plus model combination and it changes the value to what shoe.hearted is
-            shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
-            print(heartedShoes)
-            if shoe.isHearted {
+            var shoe = shoesArray[i]
+            heartedShoes[shoe.brand + shoe.model] = shoe.isHearted
+            if shoe.isHearted == true {
+                shoe.counter += 1
                 Api.instance.cartList.append(shoe)
-                if let newIndex = Api.instance.cartList.firstIndex(where: {$0 == shoe}) {
-                    Api.instance.cartList[newIndex].counter += 1
+                shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
+                
+            } else if shoe.isHearted == false {
+                if let newIndex = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model && $0.brand == specificShoe.brand}) {
+                    Api.instance.cartList[newIndex].counter = 0
+                    Api.instance.cartList.remove(at: newIndex)
+                    shoe.isHearted.toggle()
                     shoesArray[i].isHearted.toggle()
+                    shoeCollectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
                 }
-            } else {
-                // remove from cart
             }
         }
     }
 }
 
 private extension HomeVC {
-
+    
     func getCellCount(CV: UICollectionView)-> Int {
         
         switch CV {

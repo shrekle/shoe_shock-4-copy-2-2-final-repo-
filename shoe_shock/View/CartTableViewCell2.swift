@@ -12,8 +12,6 @@ protocol CartTableViewCellDelegate: AnyObject {
 }
 
 class CartTableViewCell2: UITableViewCell {
-
-//    identifier?
     
     weak var delegate: CartTableViewCellDelegate?
     
@@ -33,14 +31,12 @@ class CartTableViewCell2: UITableViewCell {
         quantityLBL.text = String(Api.instance.cartList[index].counter)
         imageLBL.image = UIImage(named: Api.instance.cartList[index].imageName)
     }
-//    its cofusing the index and assigning weird crap to a diff shoe because something moves or some crap
     @IBAction func stepperJenk(_ sender: UIStepper) {
         if let index = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model}) {
         Api.instance.cartList[index].counter = Int(sender.value)
         shouldRemove(sender: sender.value)
-        print(Api.instance.cartList)
         delegate?.nateHasJustinTimberlakeHairCurls()
-        }
+         }
     }
 }
 
@@ -60,11 +56,6 @@ private extension CartTableViewCell2 {
         } else {
             return "0"
         }
-       
     }
 }
-//will have to use a delegate to pass in the whole model with the counter chnages and bool changes to the cartVC and do the math the for the cartTotalLBl so i can reload()
-//maybe have all the math done here that pertain to the cell and then pass the final info
-//IM making a copy of specific shoe in order to to put it in the stepperJenk...maybe pass that and replace it in the array like nate did
-    
 

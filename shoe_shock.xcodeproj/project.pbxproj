@@ -10,7 +10,6 @@
 		CA095E87283D9910000312CD /* UIRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA095E86283D9910000312CD /* UIRoundedView.swift */; };
 		CA095E89283D99EC000312CD /* UIRoundedMiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */; };
 		CA0F9C56288F83E700BC5CFB /* CompletedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9C55288F83E700BC5CFB /* CompletedVC.swift */; };
-		CA0F9C582890530700BC5CFB /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0F9C572890530700BC5CFB /* CartTableViewCell.swift */; };
 		CA3D2A4B288F37C70031571E /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3D2A4A288F37C70031571E /* DetailsVC.swift */; };
 		CA709A33282EA99600788BA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA709A32282EA99600788BA0 /* AppDelegate.swift */; };
 		CA709A35282EA99600788BA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA709A34282EA99600788BA0 /* SceneDelegate.swift */; };
@@ -32,7 +31,6 @@
 		CA095E86283D9910000312CD /* UIRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedView.swift; sourceTree = "<group>"; };
 		CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRoundedMiniView.swift; sourceTree = "<group>"; };
 		CA0F9C55288F83E700BC5CFB /* CompletedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedVC.swift; sourceTree = "<group>"; };
-		CA0F9C572890530700BC5CFB /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		CA3D2A4A288F37C70031571E /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		CA709A2F282EA99600788BA0 /* shoe_shock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shoe_shock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA709A32282EA99600788BA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				CAC0B575283410E200499913 /* SuggestionsCollectionViewCell.swift */,
 				CA095E86283D9910000312CD /* UIRoundedView.swift */,
 				CA095E88283D99EC000312CD /* UIRoundedMiniView.swift */,
-				CA0F9C572890530700BC5CFB /* CartTableViewCell.swift */,
 				CABBA12B289E0A08006A1DA5 /* CartTableViewCell2.swift */,
 			);
 			path = View;
@@ -230,7 +227,6 @@
 				CA709A33282EA99600788BA0 /* AppDelegate.swift in Sources */,
 				CAC0B576283410E200499913 /* SuggestionsCollectionViewCell.swift in Sources */,
 				CA709A35282EA99600788BA0 /* SceneDelegate.swift in Sources */,
-				CA0F9C582890530700BC5CFB /* CartTableViewCell.swift in Sources */,
 				CAC0B57D2834446400499913 /* API.swift in Sources */,
 				CAC0B5782834133200499913 /* Shoe.swift in Sources */,
 			);

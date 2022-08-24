@@ -26,16 +26,10 @@ class DetailsVC: UIViewController {
         specificShoe.isHearted.toggle()
         specificShoe.counter = 1
         Api.instance.cartList.append(specificShoe)
-//        print(Api.instance.cartList)
-//        var index = Api.instance.cartList.firstIndex(where: {$0.model == specificShoe.model})
-//        Api.instance.cartList[index ?? 0].isHearted.toggle()
-//        Api.instance.cartList[index ?? 0].counter += 1
-//        print(specificShoe,"||", Api.instance.cartList[index!])
     }
 }
 
 private extension DetailsVC {
-    //i passed the specificShoe that is loaded with the correct data from homeVC through the prepareForSegue in the didSelectItemAt
     func updateViews() {
         brandLBl.text = specificShoe.brand
         modelLBl.text = specificShoe.model

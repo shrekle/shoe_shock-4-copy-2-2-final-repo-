@@ -499,14 +499,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MeY-ks-pj3">
-                                <rect key="frame" x="50" y="238" width="328" height="400"/>
+                                <rect key="frame" x="50" y="265" width="328" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="Sgo-P3-jLc"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your order is completed dawg!!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ug-No-uSU">
-                                <rect key="frame" x="20" y="688" width="388" height="109.33333333333337"/>
+                                <rect key="frame" x="20" y="715" width="388" height="109.33333333333337"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Ultra MAGA&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIn-B6-1Uv">
+                                <rect key="frame" x="97.000000000000014" y="157" width="234.33333333333337" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -515,10 +521,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5Ug-No-uSU" firstAttribute="leading" secondItem="3we-st-Qjv" secondAttribute="leading" constant="20" id="1Oe-By-MRC"/>
+                            <constraint firstItem="ZIn-B6-1Uv" firstAttribute="top" secondItem="3we-st-Qjv" secondAttribute="top" constant="69" id="HOr-Fm-3HK"/>
+                            <constraint firstItem="MeY-ks-pj3" firstAttribute="top" secondItem="ZIn-B6-1Uv" secondAttribute="bottom" constant="60" id="KhO-s9-L7f"/>
                             <constraint firstItem="MeY-ks-pj3" firstAttribute="leading" secondItem="3we-st-Qjv" secondAttribute="leading" constant="50" id="OJK-FC-Tec"/>
+                            <constraint firstItem="ZIn-B6-1Uv" firstAttribute="centerX" secondItem="3yr-aq-mtY" secondAttribute="centerX" id="PTX-U5-JAi"/>
                             <constraint firstItem="3we-st-Qjv" firstAttribute="trailing" secondItem="5Ug-No-uSU" secondAttribute="trailing" constant="20" id="acj-Rt-8Wl"/>
                             <constraint firstItem="3we-st-Qjv" firstAttribute="trailing" secondItem="MeY-ks-pj3" secondAttribute="trailing" constant="50" id="hLt-ae-kj4"/>
-                            <constraint firstItem="MeY-ks-pj3" firstAttribute="top" secondItem="3we-st-Qjv" secondAttribute="top" constant="150" id="jmv-H3-DYc"/>
                             <constraint firstItem="5Ug-No-uSU" firstAttribute="top" secondItem="MeY-ks-pj3" secondAttribute="bottom" constant="50" id="u0S-tn-0hC"/>
                         </constraints>
                     </view>
@@ -526,6 +534,7 @@
                     <connections>
                         <outlet property="completedLBL" destination="5Ug-No-uSU" id="J7C-bM-VJG"/>
                         <outlet property="imageLBL" destination="MeY-ks-pj3" id="h3J-Ai-cPt"/>
+                        <outlet property="topLBL" destination="ZIn-B6-1Uv" id="s8j-Rx-3RH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbc-Nu-W0v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

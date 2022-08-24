@@ -23,7 +23,6 @@ class CartVC: UIViewController {
         super.viewDidLoad()
         updateLabel()
         hideButtonBecauseIcan()
-        
     }
 }
 
